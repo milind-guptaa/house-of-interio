@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { projects } from "@/lib/site";
+import { asset } from "@/lib/image-loader";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "./Icons";
 import { SplitHeading } from "./Reveal";
 
@@ -55,8 +56,8 @@ export default function Portfolio() {
           <div className="pf__main" key={`m-${i}`} data-dir={dir}>
             {p.video ? (
               <video
-                src={p.video}
-                poster={p.main.src}
+                src={asset(p.video)}
+                poster={asset(p.main.src)}
                 autoPlay
                 muted
                 loop

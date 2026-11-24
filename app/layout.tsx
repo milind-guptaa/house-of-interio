@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { site } from "@/lib/site";
+import { asset } from "@/lib/image-loader";
 import "./globals.css";
 
 // Self-hosted Google Fonts (Cormorant Garamond variable + Poppins), latin subset.
@@ -26,15 +27,16 @@ const sans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://milind-guptaa.github.io"),
   title: "House of Interio | Luxury Interior Design Studio in Jaipur",
   description:
     "House of Interio is a Jaipur interior design studio led by Anjali Goyal. We design homes, boutiques and restaurants, and handle 3D visualisation and turnkey execution across Rajasthan.",
   keywords: ["interior designer Jaipur", "interior design Rajasthan", "House of Interio", "Anjali Goyal", "turnkey interiors Jaipur"],
-  icons: { icon: "/brand/mark-color.png" },
+  icons: { icon: asset("/brand/mark-color.png") },
   openGraph: {
     title: "House of Interio | Interior Design Studio, Jaipur",
     description: "Warm, considered interiors from Jaipur.",
-    images: ["/images/hero-dining.jpg"],
+    images: [asset("/images/hero-dining.jpg")],
     locale: "en_IN",
     type: "website",
   },
