@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
-import { Close, Instagram, Menu, Phone } from "./Icons";
+import { ArrowRight, Close, Instagram, Mail, Menu, Phone } from "./Icons";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -75,18 +75,21 @@ export default function Nav() {
 
       <div id="mobile-menu" className="mobile-menu" hidden={!open}>
         <nav aria-label="Mobile">
+          <p className="mobile-menu__label">Menu</p>
           {nav.map((n, i) => (
             <a key={n.href} href={n.href} onClick={() => setOpen(false)} style={{ ["--i" as string]: i }}>
               <span className="mobile-menu__no">0{i + 1}</span>
-              {n.label}
+              <span className="mobile-menu__text">{n.label}</span>
+              <ArrowRight size={18} className="mobile-menu__arrow" />
             </a>
           ))}
         </nav>
         <div className="mobile-menu__foot">
-          <a href={site.phoneHref}>{site.phone}</a>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <p className="mobile-menu__label">Get in touch</p>
+          <a href={site.phoneHref}><Phone size={17} /> {site.phone}</a>
+          <a href={`mailto:${site.email}`}><Mail size={17} /> {site.email}</a>
           <a href={site.instagram} target="_blank" rel="noopener noreferrer" className="mobile-menu__insta">
-            <Instagram size={18} /> {site.instagramHandle}
+            <Instagram size={17} /> {site.instagramHandle}
           </a>
         </div>
       </div>
