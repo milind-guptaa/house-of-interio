@@ -616,3 +616,8 @@ ol, ul { list-style: none; }
 /* keep footer credit clear of the floating buttons */
 .footer__bottom { padding-right: 84px; }
 @media (max-width: 640px) { .footer__bottom { padding-right: 0; padding-bottom: 140px; } }
+
+/* Big footer wordmark: scale to end at the Follow column edge, clear of the floating buttons */
+.footer > .container { container-type: inline-size; }
+.footer__big { font-size: calc((100cqw - 84px) / 7.1); width: fit-content; }
+@media (max-width: 640px) { .footer__big { font-size: calc(100cqw / 7.1); } }
